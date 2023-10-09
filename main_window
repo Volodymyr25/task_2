@@ -1,0 +1,51 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QButtonGroup, QGroupBox, QLabel, QApplication, QWidget,  QPushButton, QVBoxLayout, QRadioButton, QHBoxLayout, QMessageBox, QSpinBox
+
+card_width, card_height = 500, 500
+app = QApplication([])
+main_win = QWidget()
+
+btn_sleep = QPushButton("Відпочити")
+box_minutes = QSpinBox()
+box_minutes.setValue(30)
+
+btn_menu = QPushButton("Меню")
+btn_rest = QPushButton("Відповідь")
+
+RadioGroupBox = QGroupBox("Варіанти відповідей")
+RadioGroup = QButtonGroup()
+rbtn_ans1 = QRadioButton("1")
+rbtn_ans2 = QRadioButton("2")
+rbtn_ans3 = QRadioButton("3")
+rbtn_ans4 = QRadioButton("4")
+
+RadioGroup.addButton(rbtn_ans1)
+RadioGroup.addButton(rbtn_ans2)
+RadioGroup.addButton(rbtn_ans3)
+RadioGroup.addButton(rbtn_ans4)
+
+layout_ans1 = QHBoxLayout()
+layout_ans2 = QVBoxLayout()
+layout_ans3 = QVBoxLayout()
+
+layout_ans2.addWidget(rbtn_ans1)
+layout_ans2.addWidget(rbtn_ans2)
+layout_ans3.addWidget(rbtn_ans3)
+layout_ans3.addWidget(rbtn_ans4)
+
+layout_ans1.addLayout(layout_ans2)
+layout_ans1.addLayout(layout_ans3)
+
+layout_ans1 = QHBoxLayout()
+
+
+
+
+
+main_win.resize(card_width, card_height)
+main_win.move(300, 300)
+main_win.show()
+main_win.setWindowTitle("Memory Card")
+
+
+app.exec_()

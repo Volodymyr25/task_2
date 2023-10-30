@@ -1,74 +1,55 @@
-from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import(QButtonGroup, QGroupBox, QLabel, QApplication, QWidget,  QPushButton, QVBoxLayout, QRadioButton, QHBoxLayout, QMessageBox, QSpinBox, QLineEdit)
-
-app = QApplication([])
-main_win = QWidget()
-
-card_width, card_height = 500, 500
-main_win.resize(card_width, card_height)
-
-main_layout = QVBoxLayout()
-
-layout_1 = QHBoxLayout()
-layout_2 = QHBoxLayout()
-layout_3 = QHBoxLayout()
-layout_4 = QHBoxLayout()
-layuot_5 = QHBoxLayout()
-layuot_6 = QHBoxLayout()
-layuot_7 = QHBoxLayout()
-layuot_8 = QHBoxLayout()
-
-text_question = QLabel('Введіть запитання')
-text_ans = QLabel("Введіть вірну відповідь")
-text_wrong_1 = QLabel('Введіть першу хибну відповідь')
-text_wrong_2 = QLabel('Введіть другу хибну відповідь')
-text_wrong_3 = QLabel('Введіть третю хибну відповідь')
-
-text_1 = QLineEdit()
-text_2 = QLineEdit()
-text_3 = QLineEdit()
-text_4 = QLineEdit()
-text_5 = QLineEdit()
-
-btn1 = QPushButton()
-btn2 = QPushButton()
-btn3 = QPushButton()
-
-line = QLabel("Статистика")
-
-text_result = QVBoxLayout()
-text_result.addWidget(text_question)
-text_result.addWidget(text_ans)
-text_result.addWidget(text_wrong_1)
-text_result.addWidget(text_wrong_2)
-text_result.addWidget(text_wrong_3)
-
-text_no = QVBoxLayout()
-text_no.addWidget(text_1)
-text_no.addWidget(text_1)
-text_no.addWidget(text_2)
-text_no.addWidget(text_4)
-text_no.addWidget(text_5)
+from PyQt5.QtWidgets import QWidget, QLineEdit,\
+       QHBoxLayout, QVBoxLayout, QPushButton, QLabel
 
 
-HLine = QHBoxLayout()
-HLine.addLayout(text_result)
-HLine.addLayout(text_no)
+menu_win = QWidget()
+
+lb_quest = QLabel('Введіть запитання:')
+lb_right_ans = QLabel('Введіть вірну відповідь:')
+lb_wrong_ans1 = QLabel('Введіть першу хибну відповідь')
+lb_wrong_ans2 = QLabel('Введіть другу хибну відповідь')
+lb_wrong_ans3 = QLabel('Введіть третю хибну відповідь')
+
+le_question = QLineEdit()
+le_right_ans = QLineEdit()
+le_wrong_ans1 = QLineEdit()
+le_wrong_ans2 = QLineEdit()
+le_wrong_ans3 = QLineEdit()
+
+lb_header_stat = QLabel('Статистика')
+lb_statistic = QLabel()
+
+vl_labels = QVBoxLayout()
+vl_labels.addWidget(lb_quest)
+vl_labels.addWidget(lb_right_ans)
+vl_labels.addWidget(lb_wrong_ans1)
+vl_labels.addWidget(lb_wrong_ans2)
+vl_labels.addWidget(lb_wrong_ans3)
+
+vl_lineEdits = QVBoxLayout()
+vl_lineEdits.addWidget(le_question)
+vl_lineEdits.addWidget(le_right_ans)
+vl_lineEdits.addWidget(le_wrong_ans1)
+vl_lineEdits.addWidget(le_wrong_ans2)
+vl_lineEdits.addWidget(le_wrong_ans3)
+
+hl_question = QHBoxLayout()
+hl_question.addLayout(vl_labels)
+hl_question.addLayout(vl_lineEdits)
 
 btn_back = QPushButton('Назад')
-btn_add_question = QPushButton("Додати запитання")
-btn_clear = QPushButton("Очистити")
-hl_button = QHBoxLayout()
+btn_add_question = QPushButton('Додати запитання')
+btn_clear = QPushButton('Очистити')
 hl_buttons = QHBoxLayout()
-hl_button.addWidget(btn_add_question)
-hl_button.addWidget(btn_clear)
+hl_buttons.addWidget(btn_add_question)
+hl_buttons.addWidget(btn_clear)
 
 vl_res = QVBoxLayout()
-vl_res.addLayout(HLine)
-vl_res.addWidget(hl_button)
-vl_res.addWidget(line)
-vl_res.addWidget(text_no)
+vl_res.addLayout(hl_question)
+vl_res.addLayout(hl_buttons)
+vl_res.addWidget(lb_header_stat)
+vl_res.addWidget(lb_statistic)
 vl_res.addWidget(btn_back)
 
-main_win.setLayout(vl_res)
-
+menu_win.setLayout(vl_res)
+menu_win.resize(400, 300)
